@@ -1,0 +1,151 @@
+#! /bin/python3
+
+#STRINGS
+#Print string
+print("Hello,world!")
+print('Hello,world!')
+print("""This string runs
+multiple lines""") #Triple quote for multi line
+print("This string is "+"awesome!") #We can also concatenate
+print('\n') #New line
+print('Test that new line out.')
+
+print('\n') #New line
+#MATH
+print(50 + 50) #add
+print(50 - 50) #subtract
+print(50 * 50) #multiply
+print(50 / 50) #divide , a float is what is to the right of a decimal
+print(50 + 50 - 50 * 50 / 50) #pemdas
+print(50 ** 2) #exponents
+print(50 % 6) #medullo - prints what is left over
+print (50 / 6) #division with float(remainder)
+print(50 // 6) #no remainder
+
+print('\n') #New line
+#VARIABLES AND METHODS
+quote = "All is fair in love and war."
+print(quote)
+print(quote.upper()) #uppercase
+print(quote.lower()) #lowercase
+print(quote.title()) #title case
+print(len(quote)) #count the characters including spaces
+
+name = "Your Name" #string
+age = YourAge #int
+job = "Your Job" #string
+
+print(int(age))
+print(int(99.9)) #ignores the float
+
+print("My name is " + name + " and I am a " + job)
+print("My name is " + name + " and I am " + str(age) + " years old.")
+
+age += 1
+print(age) #prints your current age
+
+birthday = 1
+age += birthday
+print(age) #prints your age after your birthday
+
+print('\n')
+#FUNCTIONS
+
+def who_am_i(): #this is a function without parameters
+    name = "Your Name"
+    age = YourAge
+    print("My name is " + name + " and I am " + str(age) + " years old.")
+
+who_am_i()
+
+def add_one_hundred(num):
+    print(num + 100)
+
+add_one_hundred(100)
+
+def add(x,y):
+    print(x + y)
+
+add(7,7)
+
+def multiply(x,y):
+    return x * y
+
+multiply(7,7)
+print(multiply(7,7))
+
+def square_root(x):
+    print(x ** .5)
+
+square_root(64)
+
+def nl(): #new line
+    print('\n')\
+
+nl()
+#BOOLEAN EXPRESSIONS (TRUE OR FALSE)
+
+bool1 = True
+bool2 = 3*3 == 9
+bool3 = False
+bool4 = 3*3 != 9
+
+print(bool1,bool2,bool3,bool4)
+print(type(bool1))
+bool5 = "True"
+print(type(bool5))
+
+nl()
+#RELATIONAL AND BOOLEAN OPERATORS
+greater_than = 7 > 5
+less_than = 5 < 7
+greater_than_equal_to = 7 <= 7
+less_than_equal_to = 5 <= 7
+test_and = (7 > 5) and (5 < 7) #True
+test_and2 = (7 > 5) and (5 > 7) #False
+
+print(greater_than,less_than,greater_than_equal_to,less_than_equal_to,test_and,test_and2)
+
+nl()
+#CONDITIONAL STATEMENTS - if/else
+def drink(money):
+    if money >= 2:
+        return "You've got yourself a drink!"
+    else:
+        return "No drink for you!"
+
+print(drink(3))
+print(drink(1))
+
+def alcoholic_beverages(age,money):
+    if (age >= 21) and (money >= 5):
+        return "We're getting a drink!"
+    elif (age >= 21) and (money <= 5):
+        return "Come back with more money."
+    elif (age <= 21) and (money >= 5):
+        return "Nice try, kid"
+    else:
+        return "You're too young and too poor"
+
+print(alcoholic_beverages(21,5))
+print(alcoholic_beverages(21,4))
+print(alcoholic_beverages(20,5))
+print(alcoholic_beverages(20,4))
+
+nl()
+#LISTS - Have brackets []
+movies = ["When Harry Met Sally", "The Hangover", "The Perks of Being a Wallflower", "The Exorcist"]
+print(movies[1]) #returns the 2nd item in the list
+print(movies[0]) #returns the 1st item in the list
+print(movies[1:3]) #returns the 1st index # given until the last # given, not including the last #
+print(movies[1:])
+print(movies[:1])
+print(movies[-1])
+print(len(movies))
+
+movies.append("JAWS")
+print(movies) #appends to the list
+movies.insert(2, "Hustle")
+print(movies)
+movies.pop() #removes the last item
+print(movies)
