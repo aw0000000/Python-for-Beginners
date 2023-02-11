@@ -1,0 +1,90 @@
+#! /bin/python3
+
+
+def nl(): #new line
+    print('\n')\
+
+
+#2-DIMENSIONAL LISTS
+grades = [["Bob", 82], ["Alice", 90], ["Jeff", 73]]
+bobs_grade = grades[0][1]
+print(bobs_grade)
+
+
+nl()
+#TUPLES - Do not change (immutable), () instead of []
+grades = ("a", "b", "c", "d", "f")
+print(grades[1])
+
+
+nl()
+#LOOPING
+
+
+#For loops - start to finish of an iterate
+vegetables = ["cucumber", "spinach", "kale"]
+for x in vegetables:
+    print(x)
+#While loops - execute as long as True
+i = 1
+while i < 10:
+    print(i)
+    i += 1
+
+
+nl()
+#ADVANCED STRINGS - also immutable
+my_name = "Your Name"
+print(my_name[0]) #First letter
+print(my_name[-1]) #Last letter
+
+
+sentence = "This is a sentence."
+print(sentence[:4])
+print(sentence.split()) #delimiter - default is a space
+
+
+sentence_split = sentence.split()
+sentence_join = ' '.join(sentence_split)
+print(sentence_join)
+
+
+quote = "He said, 'give me all your money'"
+print(quote)
+quote = "He said, \"give me all your money\"" #character escaping
+print(quote)
+
+
+too_much_space = "        hello          "
+print(too_much_space.strip()) #will remove the default delimiter of space
+
+
+letter = "A"
+word = "Apple"
+print("A" in "Apple") #returns True
+print("a" in "Apple") #returns False
+print(letter.lower() in word.lower()) #returns True
+
+
+movie = "Princess Diaries"
+print("My favorite movie is {}".format(movie)) #String format method
+print("My favorite movie is %s." %movie) #percent formatting
+print(f"My favorite movie is {movie}.") #f string
+
+
+nl()
+#DICTIONARIES - key:value pairs {}
+drinks = {"orange juice": 2, "apple juice": 3, "cranberry juice": 4} #drink is the key, price is the value
+print(drinks)
+
+
+employees = {"Finance": ["Bob", "Linda", "Tina"], "IT": ["Frank", "Rose", "Teddy"], "HR": ["Joan", "Lynn", "William"]}
+print(employees)
+
+
+employees['Legal'] = ["Toni"] #adds new key:value pair
+print(employees)
+
+
+employees.update({"Sales": ["Dane", "Oliver"]}) #another method for adding key:value pair
+print(employees)
