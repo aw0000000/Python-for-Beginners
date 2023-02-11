@@ -1,0 +1,24 @@
+importing.py
+#! /bin/python3
+
+
+#IMPORTING - adding modules to Python
+import sys #system functions and parameters
+from datetime import datetime as dt #import with alias
+print(sys.version)
+print(dt.now())
+
+s.py - the name ‘sockets.py’ will break Python, so choose a name like ‘s.py’ to avoid this
+#! /bin/python3
+
+
+#SOCKETS - connecting nodes
+import socket
+
+
+HOST = '127.0.0.1' #ipv4 address
+PORT = 7777 #tcp port
+
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #AF_INET is IPv4, SOCK_STREAM is a port
+s.connect((HOST,PORT))
