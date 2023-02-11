@@ -1,0 +1,37 @@
+#! /bin/python3
+
+def nl(): #new line
+    print('\n')\
+
+name = input("Enter your name: ")
+drink = input("What is your favorite drink?: ")
+print("Hello "+name+"! Have a(n) "+drink+"!")
+
+nl()
+x = input("Give me a number: ")
+y = input("Give me yet another number: ")
+print(x + y)  # concatenates our values
+
+nl()
+x = float(input("Give me a number: "))
+y = float(input("Give me yet another number: "))
+print(x + y)  # adds our values as intended
+
+
+nl()
+x = float(input("Give me a number: "))
+o = input("Give me an operator: ")
+y = float(input("Give me yet another number: "))
+
+if o == "+":
+    print (x + y)
+elif o == "-":
+    print(x - y)
+elif o == "/":
+    print(x / y)
+elif o == "*":
+    print(x * y)
+elif o == "**":
+    print(x ** y)
+else:
+    print("Unknown operator")
