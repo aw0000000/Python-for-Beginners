@@ -1,0 +1,62 @@
+Budget.py
+
+class Expense:
+    def __init__(self, category, amount):
+        self.category = category
+        self.amount = float(amount)
+
+
+    def budget_check(self, budget):
+        if not isinstance(budget, (int,float)):  # isinstance() looks to return a True value. if it is false (not isinstance()), it will close the application.
+            print('Invalid entry. Please enter a number')
+            exit()
+
+
+    def change(self, budget):
+        return (budget - self.amount)
+
+
+    def buy(self, budget):
+        self.budget_check(budget)
+
+
+        if budget >= self.amount:
+            print(f'You can spend money on {self.category}.')
+
+
+            if budget == self.amount:
+                print('You have exactly enough money to spend on this.')
+
+
+            else:
+                print(f'You can spend money on this, and have ${self.change(budget)} left over.')
+
+
+            exit('Thanks for using our expenses budget app!')
+
+
+
+
+
+
+Expenses.py
+
+#!/bin/python3
+
+
+from Budget import Expense
+personal_spending = Expense('entertainment', 100)
+necessities = Expense('groceries', 200)
+emergency_fund = Expense('new tires', 400)
+
+
+try:
+    expense_budget = float(input('What is your spending budget?'))
+except ValueError:
+    exit('Please enter a number.')
+
+
+for Expense in [emergency_fund, necessities, personal_spending]:
+    Expense.buy(expense_budget)
+
+
