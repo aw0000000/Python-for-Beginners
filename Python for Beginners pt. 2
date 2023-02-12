@@ -88,3 +88,13 @@ print(employees)
 
 employees.update({"Sales": ["Dane", "Oliver"]}) #another method for adding key:value pair
 print(employees)
+
+
+# **kwargs: parameter that will pack all arguments into a dictionary. useful so that a function can accept a varying amount of keyword arguments.
+
+def hello(**kwargs):  # kwargs do not have to be named kwargs, but ** must precede the name
+    print("Hello " + kwargs['First'])
+    for key,value in kwargs.items():
+        print(value,end=" ")
+
+hello(First="Bob",Last="Jones, ",Title="Finance Manager")
