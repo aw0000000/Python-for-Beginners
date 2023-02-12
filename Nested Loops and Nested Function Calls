@@ -1,6 +1,6 @@
 #!/bin/python3
 
-# NESTED LOOPS: The "inner loop" will finish its iterations before finising one iteration of the "outer loop"
+# NESTED LOOPS: The "inner loop" will finish its iterations before finishing one iteration of the "outer loop"
 
 rows = int(input("How many rows?: "))
 columns = int(input("How many columns?: "))
