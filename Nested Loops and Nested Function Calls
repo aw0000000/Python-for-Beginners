@@ -1,0 +1,49 @@
+#!/bin/python3
+
+# NESTED LOOPS: The "inner loop" will finish its iterations before finising one iteration of the "outer loop"
+
+rows = int(input("How many rows?: "))
+columns = int(input("How many columns?: "))
+symbol = input("Enter a symbol to use: ")
+
+for i in range(rows):
+    for j in range(columns):
+        print(symbol, end="")
+    print()
+
+# LOOP CONTROL STATEMENTS: change a loop's execution from its normal sequence
+
+# break: terminates the loop entirely
+# continue: skips to the next iteration of the loop
+# pass: does nothing, acts as a placeholder
+
+while True:
+    name = input("Enter your name: ")
+    if name != "":
+        break
+
+phone_number = "123-456-7890"
+for i in phone_number:
+    if i == "-":
+        continue
+    print(i, end="")
+
+for i in range(1,21):
+    if i == 13:
+        pass
+    else:
+        print(i)
+
+
+#!/bin/python3
+
+# NESTED FUNCTION CALLS: function calls inside other function calls. innermost function calls are resolved first. returned value is used as argument for the next outer function.
+
+# num = input("Enter a whole positive number: ")
+# num = float(num)
+# num = abs(num)
+# num = round(num)
+# print(num)
+
+# Instead of running each of the functions individually, we can create a nested function.
+print(round(abs(float(input("Enter a whole positive number: ")))))
