@@ -1,0 +1,167 @@
+#! /bin/python3
+
+
+# READING AND WRITING TO NEW FILES, NAMED 'months' AND 'days', ARBITRARILY.
+def nl():  # new line
+    print('\n')\
+
+
+# READING A FILE - file.close() should only be used once finished with the file, or python will throw an error.
+months = open('months.txt')
+
+
+print(months) # reads the file (gives us the file info)
+print(months.mode) # tells us what mode we are in
+print(months.readable()) # returns a boolean statement of if this is True or False
+
+
+months.close()
+
+
+nl()
+print(months.read) # reads through all iterations
+
+
+months.close()
+
+
+nl()
+print(months.readlines()) # reads line by line
+
+
+months.close()
+
+
+nl()
+print(months.readlines()) # reads line by line
+months.seek(0)
+print(months.readlines()) # will read through the file from the beginning
+
+
+months.close()
+
+
+# Other methods of opening the file
+months = open('months.txt')
+for month in months:
+    print(month)  # will read the file
+
+
+for month in months:
+    print(month.strip())  # removes the default space delimiter
+
+
+months.close()
+
+
+# WRITING TO A FILE - file.close() should only be used once finished with the file, or python will throw an error.
+nl()
+days = open('days.txt', "w")
+days.write("Monday")  # writes to a new file
+
+
+days.close()
+
+
+nl()
+days = open('days.txt', "w")  #overwrites the file contents
+days.write("\nTuesday") 
+
+
+days.close()
+
+
+nl()
+days = open('days.txt', "a")  #appends to the file
+
+
+days.write("\nWednesday")  
+days.close()
+
+
+# SIMPLE FILE DETECTION
+
+#!/bin/python3
+
+
+import os  #  Imports the os module, which allows interaction with the operating system.
+
+
+path = "C:\\filepath"  #  \ is an escape character. Typing \\ allows us to use a backslash.
+
+
+if os.path.exists(path):
+    print("That location exists.")
+    if os.path.isfile(path):
+        print("That is a file.")
+    elif os.path.isdir(path):
+        print("That is a directory.")
+else: print("That location doesn't exist.")
+
+
+# COPY A FILE
+
+#!/bin/python3
+
+import shutil  # Module for high-level file operations, including copying files.
+copyfile(): copies contents of a file
+copy():copyfile() + permission mode + destination can be a directory
+copy2(): copy() + copies metadata (file's creation and modification times)
+
+shutil.copyfile("C:\\filepath","C:\\new_filepath")  #  src,dst
+shutil.copy("C:\\filepath","C:\\new_filepath")
+shutil.copy2("C:\\filepath","C:\\new_filepath")
+
+
+# MOVE A FILE
+
+#!/bin/python3
+
+import os  #  Imports the os module, which allows interaction with the operating system.
+
+source = "original_file_location"  # This can be used for directories as well.
+destination = "new_file_location"
+
+try:
+    if os.path.exists(destination):  # Simple file detection.
+        print("There is already a file there.") # Added to prevent saving over an existing file.
+    else:
+        os.replace(source,destination)
+        print(source + " was moved.")
+except FileNotFoundError:
+    print(source + " was not found.")
+
+# DELETE A FILE
+
+#!/bin/python3
+
+os.remove("test.txt")  # One method for deleting a file.
+
+path = "test.txt"
+os.remove(path) # Another method for deleting a file.
+
+# Exception Handling
+
+path = "test.txt"
+
+try:
+    os.remove(path)  # This will not work on an empty folder. Throws a permission error.
+except FileNotFoundError:
+    print("This file was not found.")
+  
+# Deleting a Folder
+
+path = "folder"
+
+try: os.remove(path)  # Deletes a file.
+     os.rmdir(path)   # Deletes an empty directory.
+     shutil.rmtree(path)  # Deletes a directory and its contents.
+     
+except FileNotFoundError:
+    print("That file was not found.")
+except PermissionError:
+    print("You do not have permission to delete this object.")
+except OSError:
+    print("You cannot delete that using this function.")
+else:
+    print(path + " was deleted.")
