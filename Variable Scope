@@ -1,0 +1,14 @@
+#!/bin/python3
+
+# SCOPE: the region that a variable is recognized.
+# A variable is only available from inside the region it is created.
+# Global and locally scoped versions of a variable can be created.
+
+name = "YourName" # Global scope (available inside and outside functions)
+
+def display_name():
+    name = "YourNickname" # Local scope (available only inside the function)
+    print(name)  # Prints your display name/nickname
+
+display_name()  # Prints your display name/nickname
+print(name)  # Prints the globally scoped version of the name variable
