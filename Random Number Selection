@@ -1,0 +1,15 @@
+#!/bin/python3
+
+import random  # Imports the random module.
+
+x = random.randint(1,6)  # Generates a random integer between 1-6.
+y = random.random()  # Generates a random floating point number.
+print(y)
+
+myList = ['rock', 'paper', 'scissors']
+z = random.choice(myList)  # Selects a random value from our list.
+print(z)  # Prints the random value.
+
+playingCards = [1,2,3,4,5,6,7,8,9,"J","Q","K","A"]
+random.shuffle(playingCards)  # Shuffles the values in our list.
+print(playingCards)  # Prints the shuffled values.
