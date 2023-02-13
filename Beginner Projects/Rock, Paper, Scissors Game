@@ -1,0 +1,54 @@
+#!/bin/python3
+
+import random  # Imports the random module.
+
+while True:  # The while loop will continue the game as long as the player wishes to play.
+    choices = ["rock", "paper", "scissors"]
+
+    computer = random.choice(choices)  # The computer will choose an item from 'choices' at random.
+    player = None
+
+    while player not in choices:
+        player = input("rock, paper, or scissors?  : ").lower()
+
+    if player == computer:  # The following if statements will determine the outcome of the game.
+        print("player: ", player)
+        print("computer: ", computer)
+        print("It's a tie!")
+
+    elif player == "rock":
+        if computer == "paper":
+            print("player: ", player)
+            print("computer: ", computer)
+            print("You lose!")
+        if computer == "scissors":
+            print("player: ", player)
+            print("computer: ", computer)
+            print("You win!")
+
+    elif player == "paper":
+        if computer == "rock":
+            print("player: ", player)
+            print("computer: ", computer)
+            print("You win!")
+        if computer == "scissors":
+            print("player: ", player)
+            print("computer: ", computer)
+            print("You lose!")
+
+    elif player == "scissors":
+        if computer == "paper":
+            print("player: ", player)
+            print("computer: ", computer)
+            print("You win!")
+        if computer == "rock":
+            print("player: ", player)
+            print("computer: ", computer)
+            print("You lose!")
+
+    play_again = input("Play again? (yes/no): ").lower()
+
+    if play_again != "yes":  # This allows the player to exit the program when they are done playing.
+        break
+
+print("Thanks for playing!")
