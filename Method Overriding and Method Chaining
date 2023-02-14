@@ -1,0 +1,51 @@
+#!/bin/python3
+
+# METHOD OVERRIDING: The ability of an object-oriented programming language to allow a subclass (child) to provide a
+# specific implementation of a method already provided by a parent class.
+
+class Animal:
+
+    def eat(self):
+        print("This animal is eating.")
+
+
+class Rabbit(Animal):  # Derived (child) class
+    def eat(self):
+        print("This rabbit is eating a carrot.")
+
+
+rabbit = Rabbit()
+rabbit.eat()  # Prints out the definition of the eat method specific to rabbits. We have overridden the original eat
+# method.
+
+# METHOD CHAINING: Calling multiple methods sequentially. Each call performs an action on the same object.
+
+
+class Car:
+    def turn_on(self):
+        print("Start the engine.")
+        return self  # When using method chaining, if nothing is returned python will throw a NoneType error.
+
+    def drive(self):
+        print("Drive the car.")
+        return self
+
+    def brake(self):
+        print("Step on the brakes.")
+        return self
+
+    def turn_off(self):
+        print("Turn off the engine.")
+        return self
+
+
+car = Car()
+
+car.turn_on().drive()
+car.brake().turn_off()
+car.turn_on().drive().brake().turn_off()
+# The below does the same thing as the previous line. It may be more readable.
+car.turn_on()\
+    .drive()\
+    .brake()\
+    .turn_off()
