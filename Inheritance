@@ -1,0 +1,103 @@
+#!/bin/python3
+
+# INHERITANCE
+
+class Animal:  # Parent class
+
+    alive = True
+
+    def eat(self):
+        print("This animal is eating.")
+
+    def sleep(self):
+        print("This animal is sleeping.")
+
+
+class Rabbit(Animal):  # Derived (child) classes that inherit the properties of the parent class.
+    pass
+
+
+class Fish(Animal):
+    pass
+
+
+class Hawk(Animal):
+    pass
+
+
+rabbit = Rabbit()  # Objects
+fish = Fish()
+hawk = Hawk()
+
+
+print(rabbit.alive)
+fish.eat()
+hawk.sleep()
+
+# MULTILEVEL INHERITANCE when a derived (child) class inherits another derived (child) class
+
+
+class Organism:
+
+    alive = True
+
+
+class Animal(Organism):
+
+    def eat(self):
+        print("This animal is eating.")
+
+
+class Dog(Animal):
+
+    def bark(self):
+        print("This dog is barking.")
+
+
+dog = Dog()
+print(dog.alive)
+dog.bark()
+dog.eat()
+
+
+# MULTIPLE INHERITANCE: When a child class is derived from more than one parent class.
+
+class Prey:
+    def hide(self):
+        print("This animal hides from the predator.")
+
+
+class Predator:
+    def hunt(self):
+        print("This animal hunts the prey.")
+
+
+prey = Prey
+predator = Predator
+
+
+class Bird(Prey, Predator):
+    pass
+
+
+class Goldfish(Prey):
+    pass
+
+
+class Fox(Predator):
+    pass
+
+
+class Shark(Predator):
+    pass
+
+
+bird = Bird()
+goldfish = Goldfish()
+fox = Fox()
+shark = Shark()
+
+fox.hunt()
+goldfish.hide()
+bird.hunt()
+bird.hide()
