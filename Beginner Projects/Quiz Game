@@ -1,0 +1,82 @@
+#!/bin/python3
+
+def new_game():  # Calling this function will create a new quiz game.
+    guesses = []  # An empty list for guesses, because no guesses have been made yet.
+    correct_guesses = 0  # Set to 0 because no correct guesses have been made yet.
+    question_num = 1  # Represents the current question #. Set to 1, because that is where the game will begin.
+
+    for key in questions:  # For loop that will display the questions in the dictionary.
+        print("-------------------------")  # This is arbitrary, but this can be used to separate the questions.
+        print(key)  # Prints a question
+        for i in options[question_num-1]:  # Nested for loop. [question_num-1] starts the game at question 1.
+            print(i)
+        guess = input("Enter (A, B, C, or D: ")  # Allows the player to enter their answer choice.
+        guess = guess.upper()  # Makes the answer choice case-insensitive.
+        guesses.append(guess)  # Appends the current guess to the list of guesses.
+        correct_guesses += check_answer(questions.get(key), guess)  # Passes the key for the current question through the check_answer function.
+        question_num += 1   # question_num += 1 displays one set of answers per question.
+
+    display_score(correct_guesses, guesses)
+# -------------------------
+
+
+def check_answer(answer, guess):  # Checks the answer.
+    if answer == guess:  # If statement to display whether the answer was correct, and assign points.
+        print("Correct!")
+        return 1
+    else:
+        print("Wrong answer.")
+        return 0
+# -------------------------
+
+
+def display_score(correct_guesses, guesses):  # Displays the score based on correct guesses.
+    print("-------------------------")  # This is not needed but can be used for formatting.
+    print("RESULTS")
+    print("-------------------------")
+    print("Answers: ", end="")  # Prints all the answers. end="" will continue the line.
+    for i in questions:
+        print(questions.get(i), end="")  # Prints the answer key on the same line.
+    print()  # New line.
+
+    print("Guesses: ", end="")  # Prints all the guesses. end="" will continue the line.
+    for i in guesses:
+        print(i, end="")  # Prints the guesses on the same line.
+    print()  # New line.
+
+    score = float((correct_guesses/len(questions))*100)  # Calculates the score percentage. int() can be used to round to whole numbers.
+    print("Your score is: " + str(score) + "%")  # String concatenation is used here because score is an integer. 
+# -------------------------
+
+
+def play_again():  # Calling this function will ask the player if they'd like to continue the game.
+    response = input("Would you like to play again? (yes/no): ")
+    response = response.lower()  # Makes the response case-insensitive.
+
+    if response == "yes":
+        return True
+    else:
+        return False
+# -------------------------
+
+
+questions = {  # Dictionary (key: value pairs)
+    "Which of the following uses external agents to run scripted transactions against an application?": "B",
+    "Which of the following is an example of a cloud-based vulnerability scanner?": "B",
+    "Which step in the software development life cycle (SDLC) follows the design step?": "C",
+    "Which of the following is the process of discovering and listing information?": "C",
+    "Which of the following is a set of command-line tools you can use to sniff WLAN traffic?": "B"
+}
+# 2D List that stores answers choices.
+options = [["A. RUM", "B. Synthetic transaction monitoring", "C. Reverse engineering", "D. OWASP"],
+           ["A. OpenVAS", "B. Qualys", "C. Nikto", "D. Nessus"],
+           ["A. Gather requirements", "B. Certify/accredit", "C. Develop", "D. Test/validate"],
+           ["A. Escalation", "B. Discovery", "C. Enumeration", "D. Penetration Testing"],
+           ["A. hping3", "B. Aircrack-ng", "C. Qualys", "D. Reaver"]]
+
+new_game()  # Calls the new game function.
+
+while play_again():  # While loop that continues the game as long as play_again is True.
+    new_game()
+
+print("Bye.")  # This is also arbitrary.
