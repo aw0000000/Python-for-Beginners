@@ -1,0 +1,16 @@
+#!/bin/python3
+
+# Lambda function: function written in 1 line using lambda keyword.
+# Accepts any number of arguments, but only has 1 expression.
+# Useful if needed for a short period of time. Acts like a shortcut.
+
+# lambda parameters:expression
+
+
+double = lambda x: x * 2
+multiply = lambda x, y: x * y
+add = lambda x, y, z: x + y + z
+age_check = lambda age: True if age >= 21 else False
+
+print(multiply(5, 6))
+print(age_check(18))
