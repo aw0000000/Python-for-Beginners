@@ -20,6 +20,7 @@ class Employees:
         else:
             return False
 
+
 ouremployees.py
 
 #! /bin/python3
@@ -37,3 +38,34 @@ print(e2.role)
 print(e1.eligible_for_retirement())
 
 
+abstractclasses.py
+
+#!/bin/python3
+
+# abstract class: a class which contains 1 or more abstract methods.
+# abstract method: a method that has a declaration but does not have an implementation.
+
+from abc import ABC, abstractmethod  # abc = abstract based class
+
+
+class Vehicle(ABC):  # The vehicle class is now an abstract class.
+    @abstractmethod  # No methods can be created for the abstract class. Python will throw an error:
+    def go(self):    # Can't instantiate abstract class Vehicle with abstract method go
+        pass
+
+
+class Car(Vehicle):
+    def go(self):
+        print("You drive a car.")
+
+
+class Motorcycle(Vehicle):
+    def go(self):
+        print("You ride a motorcycle.")
+
+
+car = Car()
+motorcycle = Motorcycle()
+
+car.go()
+motorcycle.go()
