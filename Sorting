@@ -1,0 +1,54 @@
+#!/bin/python3
+
+# sort() method is used with lists.
+# sort() function is used with iterables.
+
+students = ["Leonardo", "Donatello", "Raphael", "Michaelangelo"]
+
+students.sort()  # Sorts the list of students in alphabetic order.
+
+for i in students:
+    print(i)
+
+print()  # New line.
+
+students.sort(reverse=True)  # Sorts the list of students in reverse alphabetic order.
+
+for i in students:
+    print(i)
+
+print()  # New line.
+
+sorted_students = sorted(students)  # Sorts iterables (i.e., tuples ())
+for i in sorted_students:
+    print(i)
+
+print()  # New line.
+
+print(sorted(students, reverse=True))  # Sorts iterables (i.e., tuples()) in reverse order.
+                                       # Change the original list [] into a tuple () for better formatting.
+
+print()  # New line.
+
+new_students = [("Sandy", "A", 92),
+                ("Patrick", "F", 50),
+                ("Spongebob", "C", 76),
+                ("Squidward", "B", 85)]  # Here, we have a list of tuples for a more complex example.
+
+new_students.sort()
+
+for i in new_students:  # Prints each tuple.
+    print(i)
+
+print()  # New line.
+
+grade = lambda grades:grades[1]  # This points 2 column 2 (the letter grade).
+new_students.sort(key=grade)
+for i in new_students:  # Prints each tuple from the list of tuples sorted by letter grade.
+    print(i)
+
+print()  # New line.
+
+new_students.sort(key=grade, reverse=True)  # Prints each tuple from the list of tuples sorted by letter grade in reverse order.
+for i in new_students:
+    print(i)
