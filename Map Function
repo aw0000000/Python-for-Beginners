@@ -1,0 +1,17 @@
+#!/bin/python3
+
+# map() applies a function to each item in an iterable (list, tuple, etc.)
+# syntax is map(function, iterable)
+
+store = [("shirt", 16.00),
+         ("pants", 25.00),
+         ("jacket", 45.00),
+         ("socks", 10.00)]  # List of tuples.
+
+to_euros = lambda data: (data[0], data[1]*0.82)  # Converting the prices from the store to euros.
+
+# store_euros = map(to_euros, store)  <---- Using the map() object to apply the function 'to_euros' to the list 'store'
+
+store_euros = list(map(to_euros, store))
+for i in store_euros:
+    print(i)  # Prints the prices of the store in euros.
