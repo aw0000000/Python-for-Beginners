@@ -1,0 +1,57 @@
+listcomprehensions.py
+
+#!/bin/python3
+
+# list comprehension is a way to create a new list with less syntax.
+#           list = [expression for item in iterable]
+
+squares = []   # Create an empty list.
+for i in range(1, 11):  # Create a for loop.
+    squares.append(i * i)  # Define what each loop iteration should do.
+print(squares)
+
+squares = [i * i for i in range(1, 11)]  # Using list comprehension gives us the same result.
+print(squares)
+
+# can mimic certain lambda functions (easier to read).
+#           list = [expression for item in iterable if conditional]
+
+students = [100, 90, 80, 70, 60, 50, 0]
+students_who_passed = list(filter(lambda x: x >= 70, students))
+print(students_who_passed)
+
+#           list = [expression if/else for item in iterable]
+
+passed_students = [i if i >= 70 else "FAILED" for i in students]
+print(passed_students)
+
+
+
+dictionarycomprehensions.py
+
+#!/bin/python3
+
+# Dictionary comprehension is a way to create dictionaries using an expression.
+#           Can replace for loops and certain lambda functions.
+# Syntax is dictionary = {key: expression for (key,value) in iterable
+
+cities_in_F = {"New York": 32, "Boston": 65, "Los Angeles": 100}
+
+cities_in_C = {key: int((value - 32)*(5/9)) for (key,value) in cities_in_F.items()}
+print(cities_in_C)
+
+print()
+
+# Example using if condition.
+
+weather = {"New York": "snowing", "Boston": "sunny", "Los Angeles": "sunny"}
+sunny_weather = {key: value for (key,value) in weather.items() if value == "sunny"}
+print(sunny_weather)
+
+print()
+
+# Example using if/else condition.
+
+vacation_destination = {"New York": "cold", "Boston": "warm", "Los Angeles": "hot"}
+vacation_here = {key: ("YES" if value == "warm" else "NO") for (key,value) in vacation_destination.items()}
+print(vacation_here)
