@@ -1,0 +1,101 @@
+# THREADS
+
+#!/bin/python3
+
+# thread: a flow of execution/order of instructions
+#           Each thread takes a turn running to achieve concurrency.
+#           GIL = global interpreter lock; allows only 1 thread to hold control of the Python interpreter.
+
+# cpu bound: program/task spends most of its time waiting for internal events (CPU intensive)
+#               better to use multiprocessing in this case.
+
+import threading
+import time
+
+
+def updates():
+    time.sleep(1)
+    print("Time for updates.")
+
+
+def restart():
+    time.sleep(5)
+    print("Restarting to apply updates.")
+
+
+def login():
+    time.sleep(3)
+    print("Enter your username and password.")
+
+
+updates()
+restart()
+login()
+
+print(threading.active_count())  # Prints the active count of threads currently running in the program.
+print(threading.enumerate())  # Prints a list of threads that are running.
+
+
+# io bound: program/task spends most of its time waiting for external events (user input, web scraping)
+#               better to use multithreading in this case.
+
+def wash_clothes():
+    time.sleep(2)
+    print("Clothes are washing.")
+
+
+def dry_clothes():
+    time.sleep(2)
+    print("Clothes are drying.")
+
+
+def wash_dishes():
+    time.sleep(2)
+    print("Dishes are in the dishwasher.")
+
+
+x = threading.Thread(target=wash_clothes, args=())
+x.start()
+
+y = threading.Thread(target=dry_clothes, args=())
+y.start()
+
+z = threading.Thread(target=wash_dishes, args=())
+z.start()
+
+
+print(threading.active_count())  # Prints the active count of threads currently running in the program.
+print(threading.enumerate())  # Prints a list of threads that are running.
+
+
+
+# DAEMON THREADS
+
+#!/bin/python3
+
+# daemon thread: a thread that runs in the background, not important for program to run.
+# the program will not wait for daemon threads to complete before exiting.
+# non-daemon threads cannot normally be killed, stay alive until task is complete.
+# ex: background tasks, waiting for input, long running processes.
+
+import threading
+import time
+
+
+def timer():
+    print()
+    print()
+    count = 0
+    while True:
+        time.sleep(1)
+        count += 1
+        print("logged in for: ", count, "seconds.")
+
+
+x = threading.Thread(target=timer, daemon=True)
+x.start()
+
+answer = input("Do you wish to exit?")
+
+# x.setDaemon(True) can change a non-daemon thread to a daemon thread.
+# print(x.isdaemon()) will return True if a thread is a daemon thread.
