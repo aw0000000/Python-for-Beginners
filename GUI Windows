@@ -1,0 +1,15 @@
+#!/bin/python3
+
+from tkinter import *  # imports everything related to the tkinter module, which is used for GUIs.
+
+# widgets: GUI elements (budgets, text boxes, labels, images, etc)
+# windows: a container to hold these widgets
+
+window = Tk()  # creates an instance of a window
+window.geometry("400x200")  # determines the size of the window
+window.title("Hello!")  # gives the window a title
+window.config(background="pink")  # adds a color background to the window. can also use the hex value of a color.
+# icon = PhotoImage(file='filepath') adds an image in the top left corner of the window (instead of a feather)
+# window.iconphoto(True,name_of_PhotoImage(ex: icon))
+
+window.mainloop()  # displays window on the screen and listens for events
