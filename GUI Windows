@@ -82,6 +82,36 @@ entry = Entry(window,                        # creates an entry box.
 entry.pack(side=RIGHT)                       # specifies where to place the entry box.
 
 
+# NEW WINDOW
+
+def create_window():
+    window_2 = Tk()                 # can also use Toplevel(). the new window will be created 'on top' of our first window.
+                                    # if we close our 'top' window, all 'bottom' windows will close.
+
+Button(window,text="New Window",command=create_window).pack()
+
+
+# WINDOW TABS
+
+from tkinter import ttk                         # gives access to additional widget.
+
+notebook = ttk.Notebook(window)                 # widget that manages a collection of windows/displays
+
+tab1 = Frame(notebook)                          # new frame for tab 1.
+tab2 = Frame(notebook)                          # new frame for tab 2.
+tab3 = Frame(notebook)                          # new frame for tab 3.
+
+notebook.add(tab1,text="Tab1")                  # adding tabs to the widget
+notebook.add(tab2,text="Tab2")
+notebook.add(tab3,text="Tab3")
+
+notebook.pack()
+
+Label(tab1,text="This is Tab 1").pack()         # adding text to the tabs.
+Label(tab2,text="This is Tab 2").pack()
+Label(tab3,text="This is Tab 3").pack()
+
+
 # ADDING A CHECK BUTTON/CHECKBOX TO THE WINDOW
 
 # The callback must be defined before we can use it.
@@ -220,15 +250,6 @@ editMenu.add_separator()                               # Adds a separator to the
 editMenu.add_command(label="Cut",command=cut)
 editMenu.add_command(label="Copy",command=copy)
 editMenu.add_command(label="Paste",command=paste)
-
-
-# NEW WINDOW
-
-def create_window():
-    window_2 = Tk()                 # can also use Toplevel(). the new window will be created 'on top' of our first window.
-                                    # if we close our 'top' window, all 'bottom' windows will close.
-
-Button(window,text="New Window",command=create_window).pack()
 
 
 window.mainloop()  # displays window on the screen and listens for events. THIS MUST BE INCLUDED FOR THE WINDOW TO APPEAR.
