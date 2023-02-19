@@ -147,4 +147,62 @@ text = Text(window)
 text.pack()
 
 
+# MENUBAR
+
+import tkinter
+from tkinter import *
+
+window = Tk()
+
+# Commands must be defined before use.
+def openFile():
+    print("File has been opened.")
+
+
+def saveFile():
+    print("File has been saved.")
+
+
+def saveFileasType():
+    print(input("Enter file extension: "))
+    print("File has been saved.")
+
+
+def undoChanges():
+    print(input("Enter ctrl+Z: "))
+    print("Action undone.")
+
+
+def cut():
+    print("You cut some text.")
+
+
+def copy():
+    print("You copied some text.")
+
+
+def paste():
+    print("You pasted some text.")
+
+
+menu_bar = Menu(window)
+window.config(menu=menu_bar)
+
+fileMenu = Menu(menu_bar, tearoff=0)                   # Creates a File menu and removes the perforated line.
+menu_bar.add_cascade(label="File", menu=fileMenu)      # Adds the label "File" to the File menu.
+fileMenu.add_command(label="Open",command=openFile)                     # Adding clickable commands to the File menu.
+fileMenu.add_command(label="Save",command=saveFile)
+fileMenu.add_command(label="SaveAs",command=saveFileasType)
+fileMenu.add_separator()                               # Adds a separator to the File menu.
+fileMenu.add_command(label="Exit",command=quit)
+
+editMenu = Menu(menu_bar, tearoff=0)                   # Creates an Edit menu and removes the perforated line.
+menu_bar.add_cascade(label="Edit", menu=editMenu)      # Adds the label "Edit" to the Edit menu.
+editMenu.add_command(label="Undo",command=undoChanges)                     # Adding clickable commands to the Edit menu.
+editMenu.add_separator()                               # Adds a separator to the Edit menu.
+editMenu.add_command(label="Cut",command=cut)
+editMenu.add_command(label="Copy",command=copy)
+editMenu.add_command(label="Paste",command=paste)
+
+
 window.mainloop()  # displays window on the screen and listens for events. THIS MUST BE INCLUDED FOR THE WINDOW TO APPEAR.
