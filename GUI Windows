@@ -93,6 +93,26 @@ for index in range(len(choice)):
                               font="bold",
                               bg="grey")        
     radiobutton.pack(anchor=W)
+    
+ 
+# ADDING A LISTBOX TO THE GUI WINDOW
+
+listbox = Listbox(window,
+                  height=4,
+                  bg="#f6ffde",
+                  font=("Arial",20))
+listbox.pack()
+
+label = Label(window,
+              text="Incident Status",
+              font="bold")
+
+label.pack()
+
+listbox.insert(1,"False Positive")
+listbox.insert(2,"False Negative")
+listbox.insert(3,"True Positive")
+listbox.insert(4,"True Negative")
 
 
 window.mainloop()  # displays window on the screen and listens for events. THIS MUST BE INCLUDED FOR THE WINDOW TO APPEAR.
