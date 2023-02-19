@@ -195,9 +195,9 @@ from tkinter import filedialog
 
 window = Tk()
 def saveFile():
-    filepath=filedialog.asksaveasfilename()
-    file = saveFile(filepath,'w')
-    print(file.save())
+    file=filedialog.asksaveasfile(defaultextension=".txt", filetypes=[("All files", ".*")])
+    filetext = str(text.get (1.0,END))
+    file.write(filetext)
     file.close()
 
 text = Text(window)
