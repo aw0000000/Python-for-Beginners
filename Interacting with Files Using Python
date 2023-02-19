@@ -165,3 +165,45 @@ except OSError:
     print("You cannot delete that using this function.")
 else:
     print(path + " was deleted.")
+    
+    
+# FILE DIALOG BOXES
+
+# OPEN FILE
+
+import tkinter
+from tkinter import *
+from tkinter import filedialog
+
+window = Tk()
+def openFile():
+    filepath=filedialog.askopenfilename()
+    file = open(filepath,'r')
+    print(file.read())
+    file.close()
+
+button = Button(text="Open",command=openFile)
+button.pack()
+
+window.mainloop()
+
+# SAVE FILE
+
+import tkinter
+from tkinter import *
+from tkinter import filedialog
+
+window = Tk()
+def saveFile():
+    filepath=filedialog.asksaveasfilename()
+    file = saveFile(filepath,'w')
+    print(file.save())
+    file.close()
+
+text = Text(window)
+text.pack()
+
+button = Button(text="Save",command=saveFile)
+button.pack()
+
+window.mainloop()
