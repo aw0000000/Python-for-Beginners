@@ -6,10 +6,40 @@ from tkinter import *  # imports everything related to the tkinter module, which
 # windows: a container to hold these widgets
 
 window = Tk()  # creates an instance of a window
+
 window.geometry("400x200")  # determines the size of the window
+
 window.title("Hello!")  # gives the window a title
-window.config(background="pink")  # adds a color background to the window. can also use the hex value of a color.
+
+window.config(background="grey")  # adds a color background to the window. can also use the hex value of a color.
+
 # icon = PhotoImage(file='filepath') adds an image in the top left corner of the window (instead of a feather)
 # window.iconphoto(True,name_of_PhotoImage(ex: icon))
+
+photo = PhotoImage(file='HelloWorld.png')  # adds an image within the window.
+
+
+def click():                               # click must be defined for us to use later.
+    print("You clicked the button.")
+
+
+button = Button(window,                    # adds a button within the window.
+                text="Click here!",        # adds text to the button.
+                command=click)             # callback.
+
+button.pack()                              # displays the button within the window.)
+
+label = Label(window,
+              text="Hello, World!",  # label specifies the label to be added to the window.
+              font=("Arial", 20),    # font is used to specify the font, font size, and style.
+              fg="white",            # fg specifies the font color.
+              bg="black",            # bg specifies the background for the font.
+              relief=RIDGE,          # relief is used to add a border effect.
+              bd=5,                  # bd changes the width of the border.
+              image=photo,           # image adds an image to the widget.
+              compound='bottom')     # compound allows more than one object to be added to the widget.
+
+label.pack()  # displays the widget within the window.
+# label.place() can be used to change the placement of the widget.
 
 window.mainloop()  # displays window on the screen and listens for events
