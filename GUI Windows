@@ -285,4 +285,15 @@ bar.pack()
 Button(window,text="download",command=start).pack()
 
 
+# CANVAS WIDGET
+
+from tkinter import *
+
+window = Tk()
+
+canvas = Canvas(window)                                                         # adds the canvas widget to the window.
+canvas.create_rectangle(50,50,250,250, fill="pink",outline="light blue")        # adds a shape to the canvas.
+canvas.pack()                                                                   # displays the canvas.
+
+
 window.mainloop()  # displays window on the screen and listens for events. THIS MUST BE INCLUDED FOR THE WINDOW TO APPEAR.
