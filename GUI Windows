@@ -79,4 +79,20 @@ check_button = Checkbutton(window,
 check_button.pack()                                                         # this is needed to display the check button in the window.
 
 
-window.mainloop()  # displays window on the screen and listens for events
+# ADDING RADIO BUTTONS TO THE GUI WINDOW
+
+choice = ["Agree", "Somewhat Agree", "Neither Agree or Disagree", "Somewhat Disagree", "Disagree"]
+
+x = IntVar()
+
+for index in range(len(choice)):
+    radiobutton = Radiobutton(window,
+                              text=choice[index],  # This creates radio buttons for each choice.
+                              variable=x,          # Setting a variable, x, for the radio button.
+                              value=index,         # Each radio button has a different value so they aren't all selected.
+                              font="bold",
+                              bg="grey")        
+    radiobutton.pack(anchor=W)
+
+
+window.mainloop()  # displays window on the screen and listens for events. THIS MUST BE INCLUDED FOR THE WINDOW TO APPEAR.
