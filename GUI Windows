@@ -90,14 +90,14 @@ def create_window():
 
 # GRID GEOMETRY MANAGER
 
-    firstNameLabel = Label(window_2, text="First name: ").grid(row=0,column=0)  # adds a grid to the window.
-    firstNameEntry = Entry(window_2).grid(row=0,column=1)                       # row 0 and column 0 are the first row and column.
+    Label(window_2, text="First name: ").grid(row=0,column=0)  # adds a grid to the window.
+    Entry(window_2).grid(row=0,column=1)                       # row 0 and column 0 are the first row and column.
 
-    lastNameLabel = Label(window_2, text="Last name: ").grid(row=1, column=0)
-    lastNameEntry = Entry(window_2).grid(row=1, column=1)
+    Label(window_2, text="Last name: ").grid(row=1,column=0)
+    Entry(window_2).grid(row=1,column=1)
 
-    emailLabel = Label(window_2, text="Email: ").grid(row=2, column=0)
-    emailEntry = Entry(window_2).grid(row=2, column=1)
+    Label(window_2, text="Email: ").grid(row=2, column=0)
+    Entry(window_2).grid(row=2,column=1)
 
     Button(window_2,text="Submit").grid(row=3,column=0,columnspan=2)            # setting column span to 2 centers the submit button.
 
