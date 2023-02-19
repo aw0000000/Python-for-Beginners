@@ -129,5 +129,15 @@ def click():
 button = Button(window,command=click,text="Stay Logged In?")
 button.pack()
 
+# COLOR CHOOSER
+
+from tkinter import *
+from tkinter import colorchooser
+
+def click():
+    color = colorchooser.askcolor()
+    colorHex = color[1]
+    window.config(bg=colorHex)        # change background color.
+
 
 window.mainloop()  # displays window on the screen and listens for events. THIS MUST BE INCLUDED FOR THE WINDOW TO APPEAR.
