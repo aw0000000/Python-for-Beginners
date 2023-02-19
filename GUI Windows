@@ -55,4 +55,28 @@ entry = Entry(window,                        # creates an entry box.
 entry.pack(side=RIGHT)                       # specifies where to place the entry box.
 
 
+# ADDING A CHECK BUTTON/CHECKBOX TO THE WINDOW.
+
+# The callback must be defined before we can use it.
+
+
+def display():
+    if(x.get())==1:                                                         # creating an if statement for if the button is checked.
+        print("You agree to follow the rules for guest wifi use.")
+    else:
+        print("You have not agreed to follow the rules for guest wifi use.")
+
+
+x = IntVar()
+
+check_button = Checkbutton(window,
+                           text="I have read the guest wifi user agreement.",
+                           variable=x,                                      # setting a variable, x, for the check button.
+                           onvalue=1,                                       # onvalue = button checked
+                           offvalue=0,                                      # offvalue = button unchecked
+                           command=display)
+
+check_button.pack()                                                         # this is needed to display the check button in the window.
+
+
 window.mainloop()  # displays window on the screen and listens for events
