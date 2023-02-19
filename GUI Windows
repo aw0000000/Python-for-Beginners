@@ -35,6 +35,29 @@ button = Button(window,                    # adds a button within the window.
 button.pack()                              # displays the button within the window.)
 
 
+# ADDING A FRAME TO THE WINDOW
+
+def click():                               # click must be defined for us to use later.
+    print("You clicked the button.")
+
+def dontclick():
+    print("You should not have clicked the button.")
+
+frame = Frame(window)                      # adds a frame to the window.
+frame.pack()                               # displays the frame within the window.
+
+button = Button(frame,                     # adds a button within the frame.
+                text="Click here!",        # adds text to the button.
+                command=click)             # callback.
+
+button.pack()
+
+button = Button(frame,
+                text="Don't click here!",
+                command=dontclick)
+button.pack()  
+
+
 # ADDING TEXT TO THE WINDOW
 
 label = Label(window,
