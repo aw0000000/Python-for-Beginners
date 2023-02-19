@@ -16,10 +16,13 @@ window.config(background="grey")  # adds a color background to the window. can a
 # icon = PhotoImage(file='filepath') adds an image in the top left corner of the window (instead of a feather)
 # window.iconphoto(True,name_of_PhotoImage(ex: icon))
 
+# ADDING AN IMAGE TO THE WINDOW.
+
 photo = PhotoImage(file='HelloWorld.png')  # adds an image within the window.
 
+# ADDING A BUTTON TO THE WINDOW.
 
-def click():                               # click must be defined for us to use later.
+def click():                               # The callback 'click' must be defined for us to use later.
     print("You clicked the button.")
 
 
@@ -28,6 +31,8 @@ button = Button(window,                    # adds a button within the window.
                 command=click)             # callback.
 
 button.pack()                              # displays the button within the window.)
+
+# ADDING TEXT TO THE WINDOW.
 
 label = Label(window,
               text="Hello, World!",  # label specifies the label to be added to the window.
@@ -41,5 +46,13 @@ label = Label(window,
 
 label.pack()  # displays the widget within the window.
 # label.place() can be used to change the placement of the widget.
+
+# ADDING AN ENTRY BOX TO THE WINDOW.
+
+entry = Entry(window,                        # creates an entry box.
+              font=("Times New Roman", 40))
+
+entry.pack(side=RIGHT)                       # specifies where to place the entry box.
+
 
 window.mainloop()  # displays window on the screen and listens for events
