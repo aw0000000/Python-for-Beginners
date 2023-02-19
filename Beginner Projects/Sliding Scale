@@ -1,0 +1,31 @@
+#!/bin/python3
+
+# SLIDING SCALE THERMOMETER
+
+from tkinter import *
+
+def submit():
+    print("The temperature is: " + str(scale.get()) + " degrees C.")
+
+window = Tk()
+
+scale = Scale(window,
+              from_=100,
+              to=0,
+              length=600,
+              orient=VERTICAL,              # The scale can be HORIZONTAL or VERTICAL
+              font=("Consolas",20,"bold"),  # Font style
+              tickinterval=10,              # Adds numeric indicators for values on the scale.
+              resolution_=5,                # Increment of slider
+              fg="white",                   # Font color. Can use hex value or color name.
+              troughcolor="#69FAFF",        # Color inside the slider. Can use hex value or color name.
+              bg="black")                   # Background color for the window
+
+scale.pack()
+
+button = Button(window,
+                text='Submit',
+                command=submit)
+button.pack()
+
+window.mainloop()
