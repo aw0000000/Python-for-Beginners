@@ -16,11 +16,13 @@ window.config(background="grey")  # adds a color background to the window. can a
 # icon = PhotoImage(file='filepath') adds an image in the top left corner of the window (instead of a feather)
 # window.iconphoto(True,name_of_PhotoImage(ex: icon))
 
-# ADDING AN IMAGE TO THE WINDOW.
+
+# ADDING AN IMAGE TO THE WINDOW
 
 photo = PhotoImage(file='HelloWorld.png')  # adds an image within the window.
 
-# ADDING A BUTTON TO THE WINDOW.
+
+# ADDING A BUTTON TO THE WINDOW
 
 def click():                               # The callback 'click' must be defined for us to use later.
     print("You clicked the button.")
@@ -32,7 +34,8 @@ button = Button(window,                    # adds a button within the window.
 
 button.pack()                              # displays the button within the window.)
 
-# ADDING TEXT TO THE WINDOW.
+
+# ADDING TEXT TO THE WINDOW
 
 label = Label(window,
               text="Hello, World!",  # label specifies the label to be added to the window.
@@ -47,7 +50,8 @@ label = Label(window,
 label.pack()  # displays the widget within the window.
 # label.place() can be used to change the placement of the widget.
 
-# ADDING AN ENTRY BOX TO THE WINDOW.
+
+# ADDING AN ENTRY BOX TO THE WINDOW
 
 entry = Entry(window,                        # creates an entry box.
               font=("Times New Roman", 40))
@@ -55,7 +59,7 @@ entry = Entry(window,                        # creates an entry box.
 entry.pack(side=RIGHT)                       # specifies where to place the entry box.
 
 
-# ADDING A CHECK BUTTON/CHECKBOX TO THE WINDOW.
+# ADDING A CHECK BUTTON/CHECKBOX TO THE WINDOW
 
 # The callback must be defined before we can use it.
 
@@ -79,7 +83,7 @@ check_button = Checkbutton(window,
 check_button.pack()                                                         # this is needed to display the check button in the window.
 
 
-# ADDING RADIO BUTTONS TO THE GUI WINDOW
+# ADDING RADIO BUTTONS TO THE WINDOW
 
 choice = ["Agree", "Somewhat Agree", "Neither Agree or Disagree", "Somewhat Disagree", "Disagree"]
 
@@ -95,7 +99,7 @@ for index in range(len(choice)):
     radiobutton.pack(anchor=W)
     
  
-# ADDING A LISTBOX TO THE GUI WINDOW
+# ADDING A LISTBOX TO THE WINDOW
 
 listbox = Listbox(window,
                   height=4,
@@ -113,6 +117,17 @@ listbox.insert(1,"False Positive")
 listbox.insert(2,"False Negative")
 listbox.insert(3,"True Positive")
 listbox.insert(4,"True Negative")
+
+
+# ADDING A MESSAGE BOX TO THE WINDOW
+
+from tkinter import messagebox         # import messagebox library
+
+def click():
+    messagebox.showwarning(title="WARNING!",message="You will be logged out due to inactivity. Stay logged in?")
+
+button = Button(window,command=click,text="Stay Logged In?")
+button.pack()
 
 
 window.mainloop()  # displays window on the screen and listens for events. THIS MUST BE INCLUDED FOR THE WINDOW TO APPEAR.
