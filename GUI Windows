@@ -265,4 +265,24 @@ editMenu.add_command(label="Copy",command=copy)
 editMenu.add_command(label="Paste",command=paste)
 
 
+# PROGRESS BAR
+
+from tkinter.ttk import *
+
+
+def start():
+    bar['value'] += 10                          # when the 'download' button is clicked, progress increases by 10%
+    if bar['value'] == 100:
+        print("Task complete!")                 # prints "Task complete!" once progress reaches 100%
+
+
+window = Tk()
+
+bar = Progressbar(window,orient=HORIZONTAL)     # gives the progress bar a horizontal orientation
+
+bar.pack()
+
+Button(window,text="download",command=start).pack()
+
+
 window.mainloop()  # displays window on the screen and listens for events. THIS MUST BE INCLUDED FOR THE WINDOW TO APPEAR.
