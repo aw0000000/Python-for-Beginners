@@ -17,4 +17,23 @@ window.bind("<Key>",input)                  # bind function needs an event and a
 label = Label(window,font=("Consolas",40))  # this will allow text to be displayed in the window.
 label.pack()
 
+
+# MOUSE EVENTS
+
+def left_button_click(event):
+    print("You did a left mouse click.")
+
+def scroll_button(event):
+    print("You've pressed the scroll button.")
+
+def right_button_click(event):
+    print("You did a right mouse click.")
+
+window.bind("<Button-1>",left_button_click)     # left mouse click.
+
+window.bind("<Button-2>",scroll_button)         # scroll button click.
+
+window.bind("<Button-3>",right_button_click)    # right mouse click.
+
+
 window.mainloop()
