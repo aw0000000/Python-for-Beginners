@@ -19,7 +19,7 @@ window.config(background="grey")  # adds a color background to the window. can a
 
 # ADDING AN IMAGE TO THE WINDOW
 
-photo = PhotoImage(file='HelloWorld.png')  # adds an image within the window.
+photo = PhotoImage(file='image name or file path')  # adds an image within the window.
 
 
 # ADDING A BUTTON TO THE WINDOW
@@ -327,6 +327,40 @@ label.bind("<B1-Motion>",drag_motion)               # moving the mouse also move
 
 label2.bind("<Button-1>",drag_start)
 label2.bind("<B1-Motion>",drag_motion)
+
+
+# MOVING IMAGES USING KEYS
+
+# Define the commands for moving the image.
+
+def move_up(event):
+    label.place(x=label.winfo_x(), y=label.winfo_y()-10)        # moves the image down on the y-axis.
+
+
+def move_down(event):
+    label.place(x=label.winfo_x(), y=label.winfo_y()+10)        # moves the image up on the y-axis.
+
+
+def move_left(event):
+    label.place(x=label.winfo_x()-10, y=label.winfo_y())        # moves the image left on the x-axis.
+
+
+def move_right(event):
+    label.place(x=label.winfo_x()+10, y=label.winfo_y())        # moves the image right on the x-axis.
+
+window.geometry("500x500")
+
+window.bind("<Up>",move_up)
+window.bind("<Down>",move_down)
+window.bind("<Left>",move_left)
+window.bind("<Right>",move_right)
+
+photo = PhotoImage(file='image name or file path')              # specifies the image being used.
+
+label = Label(window,
+              image=photo)                                      # adds the image to the window.
+
+label.place(x=0,y=0)                                            # places the image in the top left corner.
 
 
 window.mainloop()  # displays window on the screen and listens for events. THIS MUST BE INCLUDED FOR THE WINDOW TO APPEAR.
