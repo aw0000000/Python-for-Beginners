@@ -398,6 +398,9 @@ photo = canvas.create_image(0,0,image=photoimage)
 
 # ANIMATIONS
 
+from tkinter import *
+import time
+
 WIDTH = 500                                                            # assigning the width and height as constants.
 HEIGHT = 500
 
