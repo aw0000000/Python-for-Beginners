@@ -1,0 +1,25 @@
+#!/bin/python3
+
+from tkinter import *
+from time import *
+
+
+def update():
+    time_string = strftime("%I:%M:%S %p")                       # will display the current time, AM or PM.
+    time_label.config(text=time_string)
+
+    time_label.after(1000,update)                               # will print the new time after 1000ms.
+
+
+window = Tk()
+
+time_label = Label(window,
+                   font=("Consolas",50),
+                   fg="#32cd32",
+                   bg="black")
+
+time_label.pack()
+
+update()                                                        # function that will update the time.
+
+window.mainloop()
