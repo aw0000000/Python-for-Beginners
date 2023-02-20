@@ -396,4 +396,26 @@ photoimage = PhotoImage(file='image name or file path')
 photo = canvas.create_image(0,0,image=photoimage)
 
 
+# ANIMATIONS
+
+WIDTH = 500                                                            # assigning the width and height as constants.
+HEIGHT = 500
+
+xVelocity = 1                                                          # sets speed of movement along x- and y- axes.
+yVelocity = 1
+
+canvas = Canvas(window,width=WIDTH,height=HEIGHT)
+canvas.pack()
+
+photoimage = PhotoImage(file='image name or file path')
+photo = canvas.create_image(0,0,image=photoimage,anchor=NW)             # anchors the image in the top left corner.
+
+while True:
+    coordinates = canvas.coords(photo)
+    print(coordinates)                                                  # this is not necessary.
+    canvas.move(photo,xVelocity,0)                                      # moves the image along the x-axis.
+    window.update()
+
+
+
 window.mainloop()  # displays window on the screen and listens for events. THIS MUST BE INCLUDED FOR THE WINDOW TO APPEAR.
