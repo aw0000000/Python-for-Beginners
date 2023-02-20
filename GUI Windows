@@ -329,7 +329,7 @@ label2.bind("<Button-1>",drag_start)
 label2.bind("<B1-Motion>",drag_motion)
 
 
-# MOVING IMAGES USING KEYS
+# MOVING IMAGES IN A WINDOW USING KEYS
 
 # Define the commands for moving the image.
 
@@ -361,6 +361,39 @@ label = Label(window,
               image=photo)                                      # adds the image to the window.
 
 label.place(x=0,y=0)                                            # places the image in the top left corner.
+
+
+# MOVING IMAGES ON A CANVAS USING KEYS
+
+def move_up(event):
+    canvas.move(photo,0,-10)
+
+
+def move_down(event):
+    canvas.move(photo,0,10)
+
+
+def move_left(event):
+    canvas.move(photo,-10,0)
+
+
+def move_right(event):
+    canvas.move(photo,10,0)
+
+
+window.bind("<Up>",move_up)
+window.bind("<Down>",move_down)
+window.bind("<Left>",move_left)
+window.bind("<Right>",move_right)
+
+
+canvas = Canvas(window,
+                width=500,
+                height=500,)
+canvas.pack()
+
+photoimage = PhotoImage(file='image name or file path')
+photo = canvas.create_image(0,0,image=photoimage)
 
 
 window.mainloop()  # displays window on the screen and listens for events. THIS MUST BE INCLUDED FOR THE WINDOW TO APPEAR.
