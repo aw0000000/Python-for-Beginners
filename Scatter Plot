@@ -1,0 +1,56 @@
+#!/bin/python3
+
+import matplotlib.pyplot as plt                 # importing the pyplot module as plt to save time instead of typing pyplot
+
+x_values = [1, 2, 3, 4, 5, 6]
+y_values = [1, 4, 9, 16, 25, 36]
+
+plt.style.use('seaborn')
+
+# calling the subplots() function to generate one or more plots in a figure
+fig, ax = plt.subplots()                        # fig represents the figure
+ax.scatter(x_values, y_values, s=100)           # s argument sets the size of the dots on the graph
+
+# Set chart title and label axes
+ax.set_title("Square Numbers", fontsize=24)
+ax.set_xlabel("Value", fontsize=14)
+ax.set_ylabel("Square of Value", fontsize=14)
+
+# Set size of tick labels
+ax.tick_params(axis='both', which='major', labelsize=14)
+
+plt.show()                                     # opens Matplotlib's viewer
+
+
+# Calculating Data Automatically
+
+#!/bin/python3
+
+import matplotlib.pyplot as plt                 # importing the pyplot module as plt to save time instead of typing pyplot
+
+x_values = range(1, 1001)
+y_values = [x**2 for x in x_values]
+
+plt.style.use('seaborn')
+
+# calling the subplots() function to generate one or more plots in a figure
+fig, ax = plt.subplots()                        # fig represents the figure
+ax.scatter(x_values, y_values, c='red', s=10)   # adding color to the graph. can also use a colormap.
+
+# Set chart title and label axes
+ax.set_title("Square Numbers", fontsize=24)
+ax.set_xlabel("Value", fontsize=14)
+ax.set_ylabel("Square of Value", fontsize=14)
+
+# Set size of tick labels
+ax.tick_params(axis='both', which='major', labelsize=14)
+
+# Set the range for each axis
+ax.axis([0, 1100, 0, 1100000])
+
+plt.show()                                     # opens Matplotlib's viewer
+
+
+# Saving Plots Automatically
+
+plt.savefig('squares_plot.png', bbox_inches='tight')      # bbox_inches='tight' removes extra qhitespace from the plot
