@@ -1,0 +1,54 @@
+# names.py
+
+#!/bin/python3
+
+from name_function import get_formatted_name
+
+print("Enter 'q' at any time to quit.")
+while True:
+    first = input("\nPlease provide a first name: ")
+    if first == 'q':
+        break
+    last = input("Please provide a last name: ")
+    if last == 'q':
+        break
+
+    formatted_name = get_formatted_name(first, last)
+    print(f"\tNeatly formatted name: {formatted_name}.")
+
+# name_function.py
+
+#!/bin/python3
+
+def get_formatted_name(first, last, middle=''):
+    # Generate a neatly formatted full name.
+    if middle:
+        full_name = f"{first} {middle} {last}"
+    else:
+        full_name = f"{first} {last}"
+    return full_name.title()
+
+# test_name_function.py
+
+#!/bin/python3
+
+import unittest
+
+from name_function import get_formatted_name
+
+
+class NamesTestCase(unittest.TestCase):
+    # Tests for 'name_function.py'
+    def test_first_last_name(self):
+        # testing to see which names work
+        formatted_name = get_formatted_name('james', 'brown')
+        self.assertEqual(formatted_name, 'James Brown')
+
+    def test_first_last_middle_name(self):
+        # Do names like 'Wolfgang Amadeus Mozart' work?
+        formatted_name = get_formatted_name('wolfgang', 'mozart', 'amadeus')
+        self.assertEqual(formatted_name, 'Wolfgang Amadeus Mozart')
+
+
+if __name__ == '__main__':
+    unittest.main()
